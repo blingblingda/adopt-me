@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pet from "../Pet/Pet";
+import useBreedList from "../hook/useBreedList";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -8,8 +9,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [];
-  // console.log(pets);
+  const breeds = useBreedList(animal);
 
   //after first render, get pets info
   useEffect(() => {
