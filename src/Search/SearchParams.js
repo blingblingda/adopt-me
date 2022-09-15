@@ -9,7 +9,7 @@ const SearchParams = () => {
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const breeds = [];
-  console.log(pets);
+  // console.log(pets);
 
   //after first render, get pets info
   useEffect(() => {

@@ -1,18 +1,12 @@
 * {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
   box-sizing: border-box;
-  list-style: none;
-  text-decoration: none;
+  color: #333;
 }
 
 body {
   background-color: #81a69b;
   background-image: url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
 }
 
 /* ========== General Style ========== */
