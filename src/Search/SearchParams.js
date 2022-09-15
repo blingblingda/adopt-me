@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Pet from "../Pet/Pet";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -8,11 +9,14 @@ const SearchParams = () => {
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
   const breeds = [];
+  console.log(pets);
 
+  //after first render, get pets info
   useEffect(() => {
     requestPets();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  // animal in fetch is the latest one. Using closure.
   async function requestPets() {
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
@@ -70,6 +74,15 @@ const SearchParams = () => {
         </label>
         <button>Submit</button>
       </form>
+
+      {pets.map((pet) => (
+        <Pet
+          key={pet.id}
+          name={pet.name}
+          animal={pet.animal}
+          breed={pet.breed}
+        />
+      ))}
     </div>
   );
 };
