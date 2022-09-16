@@ -11,7 +11,7 @@ body {
 }
 
 /* ========== General Style ========== */
-
+header > a,
 #root > div > h1 {
   display: inline-block;
   background-image: url(http://static.frontendmasters.com/resources/2019-05-02-complete-intro-react-v5/image-logo.png);
@@ -21,6 +21,15 @@ body {
   text-indent: -9999px;
   margin: 20px 0;
   filter: brightness(140%);
+}
+
+header {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 1100px;
+  margin: 0 auto;
+  padding: 20px 0px 0px 0px;
 }
 
 /* ========== Website Logo ========== */
