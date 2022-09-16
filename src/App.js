@@ -2,6 +2,7 @@ import React, { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import SearchParams from "./Search/SearchParams";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Details from "./Results/Details";
 
 const App = () => {
   return (
