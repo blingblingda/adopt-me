@@ -12,7 +12,8 @@ const App = () => {
         </header>
         <Routes>
           <Route path="/" element={<SearchParams />} />
-          {/* <Route path="/details/:id" element={<Details />} /> */}
+          {/* here should use :id to wait for params */}
+          <Route path="/details/:id" element={<Details />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>
