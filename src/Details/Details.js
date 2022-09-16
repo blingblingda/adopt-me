@@ -32,7 +32,7 @@ class Details extends Component {
     const { name, animal, breed, city, state, description, images } =
       this.state;
     return (
-      <div>
+      <div className="details">
         <Carousel images={images} />
         <div>
           <h1>{name}</h1>

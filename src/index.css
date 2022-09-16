@@ -1,3 +1,4 @@
+/* ========== General Style ========== */
 * {
   box-sizing: border-box;
   color: #333;
@@ -10,7 +11,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* ========== General Style ========== */
+/* ========== Website Logo ========== */
 header > a,
 #root > div > h1 {
   display: inline-block;
@@ -32,8 +33,7 @@ header {
   padding: 20px 0px 0px 0px;
 }
 
-/* ========== Website Logo ========== */
-
+/* ========== Search Params ========== */
 .search-params {
   width: 1100px;
   margin: 0 auto;
@@ -62,7 +62,8 @@ header {
   margin-bottom: 30px;
 }
 
-.search-params button {
+.search-params button,
+.details button {
   display: block;
   background-color: #ad343e;
   color: white;
@@ -86,8 +87,7 @@ header {
   border: 1px solid cornflowerblue;
 }
 
-/* ========== Search Params ========== */
-
+/* ========== Pet ========== */
 .search {
   float: left;
   width: 715px;
@@ -146,4 +146,66 @@ header {
   font-size: 20px;
   margin: 0;
   text-overflow: ellipsis;
+}
+
+/* ========== Details ========== */
+
+.details {
+  width: 1100px;
+  background: #faeff0;
+  margin: 0 auto;
+  padding: 15px;
+  margin-bottom: 25px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
+}
+
+.details p {
+  line-height: 1.5;
+  padding: 0px 15px;
+}
+
+.details h1 {
+  text-align: center;
+  color: #333;
+  font-size: 60px;
+  margin: 5px 0;
+}
+
+.details h2 {
+  text-align: center;
+  margin: 5px 0px 20px 0px;
+}
+
+/* ========== Carousel ========== */
+
+.carousel {
+  height: 400px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.carousel > img {
+  max-width: 45%;
+  max-width: 400px;
+}
+
+.carousel-smaller {
+  width: 50%;
+}
+
+.carousel-smaller > img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 15px;
+  border: 2px solid #333;
+  cursor: pointer;
+}
+
+.carousel-smaller > img.active {
+  opacity: 0.6;
 }
