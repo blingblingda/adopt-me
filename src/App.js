@@ -6,7 +6,7 @@ import Details from "./Details/Details";
 import ThemeContext from "./tools/ThemeContext";
 
 const App = () => {
-  const theme = useState("red");
+  const theme = useState("#ad343e");
 
   return (
     <StrictMode>
