@@ -13,12 +13,12 @@ const App = () => {
       <ThemeContext.Provider value={theme}>
         <BrowserRouter>
           <header>
-            <Link to="/">Adopt Me!</Link>
+            <Link to="/adopt-me">Adopt Me!</Link>
           </header>
           <Routes>
-            <Route path="/" element={<SearchParams />} />
+            <Route path="/adopt-me/" element={<SearchParams />} />
             {/* here should use :id to wait for params */}
-            <Route path="/details/:id" element={<Details />} />
+            <Route path="/adopt-me/details/:id" element={<Details />} />
           </Routes>
         </BrowserRouter>
       </ThemeContext.Provider>

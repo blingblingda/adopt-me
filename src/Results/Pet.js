@@ -5,13 +5,13 @@ const Pet = (props) => {
   const { id, name, animal, breed, images, location } = props;
 
   // no images comes back from the pet API,hero image is the default images, otherwise, hero images will be the first one
-  let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
+  let hero = "https://pets-images.dev-apis.com/pets/none.jpg";
   if (images.length) {
     hero = images[0];
   }
 
   return (
-    <Link to={`/details/${id}`} className="pet">
+    <Link to={`/adopt-me/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
