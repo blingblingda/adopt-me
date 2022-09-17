@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
+import ErrorBoundary from "../tools/ErrorBoundary";
 
 const WrappedDetails = () => {
   const params = useParams();
-  return <Details params={params} />;
+  return (
+    <ErrorBoundary>
+      <Details params={params} />
+    </ErrorBoundary>
+  );
 };
 export default WrappedDetails;
 
@@ -28,6 +33,8 @@ class Details extends Component {
     if (this.state.loading) {
       return <h2>Loading...</h2>;
     }
+
+    // throw new Error("lmao you crashed");
 
     const { name, animal, breed, city, state, description, images } =
       this.state;
