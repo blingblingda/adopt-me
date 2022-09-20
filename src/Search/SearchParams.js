@@ -24,6 +24,7 @@ const SearchParams = () => {
       `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const json = await res.json();
+    console.log(json.pets);
     setPets(json.pets);
   }
 
