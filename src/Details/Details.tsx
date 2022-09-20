@@ -47,7 +47,7 @@ class Details extends Component<IProps> {
     const res = await fetch(
       `https://pets-v2.dev-apis.com/pets?id=${this.props.params.id}`
     );
-    const json: PetAPIResponse = await res.json();
+    const json = (await res.json()) as PetAPIResponse;
     this.setState({ loading: false });
     this.setState(json.pets[0]);
   }
