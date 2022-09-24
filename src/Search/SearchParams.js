@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Results from "../Results/Results";
 import useBreedList from "../hook/useBreedList";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import changeTheme from "../actionCreators/changeTheme";
+import changeLocation from "../actionCreators/changeLocation";
+import changeAnimal from "../actionCreators/changeAnimal";
+import changeBreed from "../actionCreators/changeBreed";
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
 
@@ -10,6 +14,7 @@ const SearchParams = () => {
   const animal = useSelector((state) => state.animal);
   const breed = useSelector((state) => state.breed);
   const theme = useSelector(({ theme }) => theme);
+  const dispatch = useDispatch();
 
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedList(animal);
@@ -42,7 +47,7 @@ const SearchParams = () => {
             id="location"
             value={location}
             placeholder="Location"
-            onChange={(e) => setLocation(e.target.value)}
+            onChange={(e) => dispatch(changeLocation(e.target.value))}
             // anytime a change event happens on this particular input, the inside fn will be called, then setLocation will be called, then location in state will be updated to user's input value, then rendered with the new state.
           />
         </label>
@@ -52,8 +57,7 @@ const SearchParams = () => {
             id="animal"
             value={animal}
             onChange={(e) => {
-              setAnimal(e.target.value);
-              setBreed("");
+              dispatch(changeAnimal(e.target.value));
             }}
           >
             <option />
@@ -70,7 +74,7 @@ const SearchParams = () => {
             disabled={!breeds.length}
             id="breed"
             value={breed}
-            onChange={(e) => setBreed(e.target.value)}
+            onChange={(e) => dispatch(changeBreed(e.target.value))}
           >
             <option />
             {breeds.map((breed) => (
@@ -82,7 +86,10 @@ const SearchParams = () => {
         </label>
         <label htmlFor="theme">
           Theme
-          <select value={theme} onChange={(e) => setTheme(e.target.value)}>
+          <select
+            value={theme}
+            onChange={(e) => dispatch(changeTheme(e.target.value))}
+          >
             <option value="#ad343e">Default</option>
             <option value="pink">Pink</option>
             <option value="skyblue">Sky Blue</option>

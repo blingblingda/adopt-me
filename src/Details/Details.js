@@ -2,18 +2,8 @@ import React, { Component } from "react";
 import { useParams } from "react-router-dom";
 import Carousel from "./Carousel";
 import ErrorBoundary from "../tools/ErrorBoundary";
-import ThemeContext from "../tools/ThemeContext";
 import Modal from "../Modal/Modal";
-
-const WrappedDetails = () => {
-  const params = useParams();
-  return (
-    <ErrorBoundary>
-      <Details params={params} />
-    </ErrorBoundary>
-  );
-};
-export default WrappedDetails;
+import { connect } from "react-redux";
 
 class Details extends Component {
   // constructor(props) {
@@ -48,16 +38,12 @@ class Details extends Component {
         <div>
           <h1>{name}</h1>
           <h2>{`${animal} - ${breed} - ${city},${state}`}</h2>
-          <ThemeContext.Consumer>
-            {([theme]) => (
-              <button
-                onClick={this.toggleModal}
-                style={{ backgroundColor: theme }}
-              >
-                Adopt {name}
-              </button>
-            )}
-          </ThemeContext.Consumer>
+          <button
+            onClick={this.toggleModal}
+            style={{ backgroundColor: this.props.theme }}
+          >
+            Adopt {name}
+          </button>
           <p>{description}</p>
 
           {showModal ? (
@@ -76,5 +62,18 @@ class Details extends Component {
     );
   }
 }
-
 export { Details };
+
+const mapStateToProps = ({ theme }) => ({ theme });
+
+const ReduxWrappedDetails = connect(mapStateToProps)(Details);
+
+const WrappedDetails = () => {
+  const params = useParams();
+  return (
+    <ErrorBoundary>
+      <ReduxWrappedDetails params={params} />
+    </ErrorBoundary>
+  );
+};
+export default WrappedDetails;
