@@ -6,14 +6,14 @@ const Pet = (props) => {
 
   // no images comes back from the pet API,hero image is the default images, otherwise, hero images will be the first one
   let hero = "https://pets-images.dev-apis.com/pets/none.jpg";
-  if (images.length) {
+  if (Array.isArray(images) && images.length) {
     hero = images[0];
   }
 
   return (
     <Link to={`/adopt-me/details/${id}`} className="pet">
       <div className="image-container">
-        <img src={hero} alt={name} />
+        <img src={hero} alt={name} data-testId="thumbnail" />
       </div>
       <div className="info">
         <h1>{name}</h1>
